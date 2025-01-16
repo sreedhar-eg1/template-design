@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #9393f5;
+}
+
+.container {
+    width: 25rem;
+    height: 20rem;
+    /* border: 1px solid black; */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    animation: fly 2s infinite;
+}
+
+@keyframes fly {
+    50% {
+        top: calc(50% + 3.12rem);
+    }
+}
+
+.crow {
+    position: absolute;
+    width: 12.5rem;
+    height: 5rem;
+    background-color: black;
+    border-radius: 0 0 0 5rem;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    perspective: 31.25rem;
+}
+
+.crow::before {
+    content: "";
+    position: absolute;
+    width: 0.9rem;
+    height: 0.9rem;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: -0.18rem 0 0 0.25rem #ffffff;
+    /* box shadow: horzontal alignment  vertcal alignment blur spread( will increase the shadow) color*/
+    top: 0.9rem;
+    right: 2.5rem;
+    animation: blink 3s infinite;
+}
+
+@keyframes blink{
+    5% {
+        transform: scale(0);
+    }
+    10% {
+        transform: scale(1);
+    }
+}
+
+.crow::after {
+    content: "";
+    position: absolute;
+    width: 0.9rem;
+    height: 0.9rem;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0.18rem 0 0 0.25rem #ffffff;
+    /* box shadow: horzontal alignment  vertcal alignment blur spread( will increase the shadow) color*/
+    top: 0.9rem;
+    right: 1.5rem;
+    animation: blink 3s infinite;
+}
+
+.break-upper {
+    position: absolute;
+    height: 3.75rem;
+    width: 5rem;
+    background-color: #623193;
+    top: 7.5rem;
+    left: 18.12rem;
+    border-radius: 0 3.75rem 0 0;
+    animation: caw-1 2s infinite;
+    transform-origin: 0 50%;
+}
+
+@keyframes caw-1 {
+    20% {
+        transform: rotate(-15deg);
+    }
+    30% {
+        transform: rotate(0);
+    }
+    40% {
+        transform: rotate(-15deg);
+    }
+    60% {
+        transform: rotate(0);
+    }
+}
+
+.break-lower {
+    position: absolute;
+    width: 5rem;
+    height: 1.25rem;
+    background-color: #623193;
+    left: 18.12rem;
+    top: 11.25rem;
+    border-radius: 0 0 1.25rem  0;
+    /* rotate: 10deg; */
+    animation: caw-2 2s infinite;
+    transform-origin: 0 50%;
+}
+
+@keyframes caw-2 {
+    20% {
+        transform: rotate(15deg);
+    }
+    30% {
+        transform: rotate(0);
+    }
+    40% {
+        transform: rotate(15deg);
+    }
+    60% {
+        transform: rotate(0);
+    }
+}
+
+.wings {
+    position: absolute;
+    top: 0.93rem;
+    left: 6.25rem;
+    animation: flap 2s infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes flap {
+    50% {
+        transform: rotateX(180deg);
+    }
+}
+
+.wing {
+    position: absolute;
+    width: 1.25rem;
+    height: 8.12rem;
+    background-color: #310062;
+    border-radius: 0 1.25rem 1.25rem 1.25rem;
+}
+
+.wing::before {
+    content: "";
+    position: absolute;
+    width: 1.25rem;
+    height: 7.5rem;
+    left: -1.25rem;
+    background-color: #310062;
+    border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.wing::after {
+    content: "";
+    position: absolute;
+    width: 1.25rem;
+    height: 6.82rem;
+    left: -2.50rem;
+    background-color: #310062;
+    border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.tail {
+    position: absolute;
+    width: 3.2rem;
+    height: 1.25rem;
+    background-color: black;
+    left: -1.8rem;
+    top: 0.3rem;
+    border-radius: 1.25rem;
+    transform: rotate(-5deg);
+    animation: wiggle 0.6s infinite;
+}
+
+@keyframes wiggle {
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+.tail::after, .tail::before {
+    content: "";
+    position: absolute;
+    width: 3.2rem;
+    height: 1.25rem;
+    background-color: black;
+    border-radius: 1.25rem;
+}
+
+.tail::before {
+    transform: rotate(35deg);
+    transform-origin: right;
+}
+
+.tail::after {
+    transform: rotate(-35deg);
+    transform-origin: right;
+}
+
+.leg-1, .leg-2 {
+    position: absolute;
+    width: 1.25rem;
+    height: 5rem;
+    top: 9.37rem;
+    transform: rotate(30deg);
+    animation: leg 2s infinite;
+}
+
+@keyframes leg {
+    50% {
+        transform: rotate(40deg);
+    }
+}
+
+.leg-1 {
+    background-color: #310062;
+    left: 8.75rem;
+}
+
+.leg-2 {
+    background-color: #623193;
+    left: 8.12rem;
+}
+
+.leg-1::before,
+.leg-2::before {
+    content: "";
+    position: absolute;
+    width: 1.25rem;
+    height: 0.62rem;
+    background-color: transparent;
+    border-radius: 0 1.87rem 1.87rem 0;
+    top: 4.06rem;
+    right: -0.31rem;
+}
+
+.leg-1::before {
+    border: 0.93rem solid #310062;
+    border-left: none;
+}
+
+.leg-2::before {
+    border: 0.93rem solid #623193;
+    border-left: none;
+}
