@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: row; margin-bottom: 12px;">
+        <div style="background-color: lightblue;">div 1 container</div>
+        <div style="background-color: lightcoral;">div 2</div>
+    </div>
+    <div style="display: flex; flex-direction: row; margin-bottom: 12px;">
+        <div style="background-color: lightblue; width: 200px;">div 1 container</div>
+        <div style="background-color: lightcoral; flex: 2;">Flex 2 applied
+            <p>Paragraph</p>
+        </div>
+        <div style="background-color: lightblue; flex: 1;">Flex 1 applied
+            <p>Paragraph</p>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; height: 70px; margin-bottom: 12px; border: 1px solid gray; justify-content: end;">
+        <div style="background-color: lightblue; width: 100px;">div 1 container</div>
+        <div style="background-color: lightcoral; width: 100px;">Flex 2 applied
+            <p>Paragraph</p>
+        </div>
+        <div style="background-color: lightblue; width: 100px;">Flex 1 applied
+            <p>Paragraph</p>
+        </div>
+    </div>
+</body>
+</html>

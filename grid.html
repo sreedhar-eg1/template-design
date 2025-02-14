@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+</head>
+<body style="padding-bottom: 1000px;">
+    <div style="display: grid; grid-template-columns: 100px 100px;">
+        <div style="background-color: lightblue;">Grid 1</div>
+        <div style="background-color: lightcoral;">Grid 2
+            <p>text</p>
+        </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 100px 100px 200px; margin-top: 12px;">
+        <div style="background-color: lightblue;">Grid 1</div>
+        <div style="background-color: lightcoral;">Grid 2
+            <p>text</p>
+        </div>
+        <div style="background-color: lightblue;">Grid 3</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 100px 1fr; margin-top: 12px;">
+        <div style="background-color: lightblue;">Grid 1</div>
+        <div style="background-color: lightcoral;">Grid 2
+            <p>1fr means free space. take remaining space in the grid</p>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 100px 1fr 2fr; margin-top: 12px;">
+        <div style="background-color: lightblue;">Grid 1</div>
+        <div style="background-color: lightcoral;">Grid 2
+            <p>1fr means free space. take remaining space in the grid</p>
+            <p>1fr, 2fr - 2fr takes twice the remaining space compared to 1fr</p>
+        </div>
+        <div style="background-color: lightblue;">Grid 3</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; column-gap: 20px; row-gap: 40px; margin-top: 12px;">
+        <div style="background-color: lightblue;">Grid 1</div>
+        <div style="background-color: lightcoral;">Grid 2
+            <p>1fr means free space. take remaining space in the grid</p>
+            <p>1fr, 2fr - 2fr takes twice the remaining space compared to 1fr</p>
+        </div>
+        <div style="background-color: lightblue;">Grid 3</div>
+        <div style="background-color: lightcoral;">Grid 4
+            <p>1fr means free space. take remaining space in the grid</p>
+            <p>1fr, 2fr - 2fr takes twice the remaining space compared to 1fr</p>
+        </div>
+        <div style="background-color: lightblue;">Grid 5</div>
+        <div style="background-color: lightcoral;">Grid 6
+            <p>1fr means free space. take remaining space in the grid</p>
+            <p>1fr, 2fr - 2fr takes twice the remaining space compared to 1fr</p>
+        </div>
+    </div>
+</body>
+</html>
