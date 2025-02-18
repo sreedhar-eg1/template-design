@@ -49,6 +49,6 @@ button#subscribe {
   }
 
   .tweet:hover {
-    /* box-shadow: horizontal, vertical, blur, spread color*/
+    /* box-shadow: inside/outside horizontal, vertical, blur, spread color*/
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
