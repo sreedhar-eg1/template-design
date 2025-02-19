@@ -49,9 +49,24 @@
 			padding: .75rem 1.5rem;
 			border-radius: .5rem;
 			border: 1px solid #6E32EF;
+			/* transition: css property, duration, timing-function, delay */
+			/* Full notaion */
+			/* transition-property: background-color;
+			transition-delay: 0.5s;
+			transition-timing-function: ease-in-out;
+			transition-delay: 0.2s; */
+			/* Shorthand notation */
+			/* transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; */
+			transition: all 0.5s ease-in-out;
 		}
 
 		/* Air */
+
+		.btn:hover {
+			background-color: white;
+			color: #151618;
+			border: 1px solid #151618
+		}
 	</style>
 </head>
 <body>
