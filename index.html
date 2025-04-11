@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const element = document.querySelector(".square");
+
+        // document.addEventListener("click", (event) => {
+        //   element.style.transform = ` translateX(${
+        //     event.clientX - element.clientWidth / 2
+        //   }px) translateY(${event.clientY - element.clientHeight / 2}px)`;
+        // });
+
+        // this event run before any delay while the transition is happening
+        // element.addEventListener("transitionrun", (event) => {
+        //   console.log(event);
+        // });
+
+        // this event runs after the transition delay, if there any delay
+        // element.addEventListener("transitionstart", (event) => {
+        //   console.log(event);
+        // });
+
+        //this event runs after the transition ended
+        // element.addEventListener("transitionend", (event) => {
+        //     console.log(event);
+
+        //   if (event.propertyName === "transform") {
+        //     element.style.backgroundColor = `#${Math.floor(
+        //       Math.random() * 16777215
+        //     ).toString(16)}`;
+        //   }
+        // });
+
+        // Descrete animation
+        const button = document.querySelector(".toggle");
+        button.addEventListener("click", () => {
+          element.classList.toggle("hide");
+        });
+
+        // Adding square and checking the behavior of starting style
+        const addSquare = document.querySelector(".add-square");
+        addSquare.addEventListener("click", () => {
+          const newSquare = document.createElement("div");
+          newSquare.classList.add("square");
+          document.querySelector(".wrappper").append(newSquare);
+        });
+
+        // Toggling color and checking the behavior of @starting-style
+        const toggleColor = document.querySelector(".toggle-color");
+        toggleColor.addEventListener("click", () => {
+          const allSquare = document.querySelectorAll(".square");
+          allSquare.forEach((square) => {
+            square.classList.toggle("red");
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrappper">
+      <div class="square"></div>
+    </div>
+    <button type="button" class="toggle">Toggle</button>
+    <button type="button" class="add-square">Add Square</button>
+    <button type="button" class="toggle-color">Toggle Color</button>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+body {
+  background-color: #222222;
+}
+
+/* .square {
+  width: 200px;
+  height: 200px;
+  background-color: purple; */
+/* transition: transform 2s ease-in 0.2s, background-color 2s ease-in 0.2s; */
+/* transition: transform .20s ease-in-out 0.1s, background-color 0.2s; */
+/* } */
+
+/* .square:hover {
+    background-color: yellow;
+} */
+
+/* .square:hover {
+  transform: rotate(45deg);
+  background-color: lightblue;
+} */
+
+/* descrete animation */
+/* .square {
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(purple, yellow); */
+/* transition wont work, to make transition work we need to use transition-behavior property */
+/* transition: all 2s;
+    transition-behavior: allow-discrete; */
+/* shorthand notation with allow-discrete */
+/* transition: all 2s allow-discrete; */
+/* } */
+
+/* .square:hover {
+  background-image: linear-gradient(skyblue, violet);
+  transform: translateX(100px);
+} */
+
+/* .square {
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(purple, yellow);
+  transition: display 2s allow-discrete, opacity 2s, transform 2s; */
+/* which runs when the element is rendered for the first time, and also when display changes from none to visible, and also whenever new element is added */
+/* @starting-style {
+    opacity: 0;
+  } */
+/* } */
+
+/* alternative way to define the starting style */
+/* @starting-style {
+  .square {
+    opacity: 0;
+    transform: scale(0);
+  }
+} */
+
+/* .square.hide {
+  display: none;
+  opacity: 0;
+} */
+
+/* For toggling color and checking the behavior while using @starting-style */
+.square {
+  width: 200px;
+  height: 200px;
+  background-color: gold;
+  transition: background-color 2s ease-in-out;
+  @starting-style {
+    background-color: green;
+  }
+}
+
+.square.red {
+  background-color: red;
+}
+
+/* transition: property duration timing-function delay; */
+/* we can change the order, but not when there is delay and duration -> duration need to be before delay */
+/* even when we are using javascript and adding transformation, the transition will still work which has been defined in css file*/
+/* discrete animation: if we specify a duration of 5s and need transition on image, on 2.5s it will change the image, means when it reaches the half duration it changes */
+/* some property have discrete animation, some have computed animation */
+/* if visible value change from none to block, it will be discrete animation (start of the duration) */
+/* if visible value change from block to none, it will be computed animation (end of the duration) */
+/* When the element first rendered to the page css transition is not applied, this also applies when the element goes from none to visible */
