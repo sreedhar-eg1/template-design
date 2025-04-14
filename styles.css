@@ -16,10 +16,42 @@ body {
   width: 10px;
   height: 50px;
   background-color: greenyellow;
-  transition: left 2s;
+  /* transition: left 2s linear; */
+
+  /* adding linear stops */
+  /* transition: left 2s linear(0, 0.25, 1); */
+
+  /* alternate example : (0%, 25%, 50%, 75%, 100%)*/
+  /* transition: left 2s linear(0, 0.25, 0.15, 0.5, 1); */
+
+  /* in addidition we can add percentage beside value */
+  /* transition: left 2s linear(0, 0.25 75%, 1); */
+
+  /* stopibg with percentage value: it will stop from 25% to 75% on the second stop */
+  /* transition: left 2s linear(0, 0.25 25% 75%, 1); */
+
+  /* cubic-bezier: for smooth transitioning */
+  /* transition: left 2s cubic-bezier(0.48, -0.01, 1, 0.5); */
+
+  /* Using steps */
+  /* transition: left 2s steps(4, start); */
+
+  /* some steps examples; here start and jump-start are same */
+  /* transition: left 2s steps(1, jump-start); */
+  /* transition: left 2s steps(1, end); */
+  /* no jump freom start and end */
+  /* transition: left 2s steps(2, jump-none); */
+  /* add jump from both side start and end */
+  transition: left 2s steps(2, jump-both);
   left: -5px;
   position: absolute;
 }
+
+/* we can add linear stop to the linear transition function, linear(0, 0,25, 1) here we have specified 3 values, which divide into 3 stages from 0 to 100 percentage */
+/* cubic-bezier: it is a curve which is defined by four points, which is start of the progress and end of the progress */
+/* site for creating cubic-bezier : https://cubic-bezier.com/#1,-0.01,.77,.3 */
+/* There are some default cubic bezier: like ease, ease-in-out ... */
+/* we can also use steps function in cubic bezier: steps(4, start) means, duration is divided into 4 part, starting from start and it will jump to each [art */
 
 .element.move {
   left: calc(100% - 5px);
