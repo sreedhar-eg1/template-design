@@ -6,7 +6,29 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Animations</title>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {});
+      document.addEventListener("DOMContentLoaded", () => {
+        const element = document.querySelector('.square')
+
+        // triggered at the start of the animation
+        element.addEventListener('animationstart', (event) => {
+            console.log(event);    
+        })
+
+        // triggered at the end of the animation
+        element.addEventListener('animationend', (event) => {
+            console.log(event);    
+        })
+
+        // triggers on every iteration
+        element.addEventListener('animationiteration', (event) => {
+            console.log(event);    
+        })
+
+        // triggered when the animation is cancelled
+        element.addEventListener('animationcancel', (event) => {
+            console.log(event);    
+        })
+      });
     </script>
   </head>
   <body>

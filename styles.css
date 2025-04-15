@@ -9,4 +9,106 @@ body {
   width: 100px;
   height: 100px;
   background-color: gold;
+  /* animation-name: move, bounce;
+  animation-duration: 2s, 0.3s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running; */
+
+  /* shorthand notation */
+  /* animation: move 2s linear 0s infinite alternate running,
+    bounce 0.5s linear 0s infinite; */
+
+  /* applying animation decomposition to solve property overiding issue */
+  /* transform: rotate(45deg); */
+  /* animation: move 2s linear infinite alternate running, bounce 0.3s ease-in-out infinite; */
+  /* animation-composition: replace; */
+  /* animation-composition: add; */
+
+  /* applying animation fill mode */
+  /* animation: move 2s linear 2 alternate;
+  animation-fill-mode: forwards; */
+
+  /* discrete animation */
+  background-image: linear-gradient(gold, purple);
+  animation: flip-image 8s linear  1;
+}
+
+/* there is 3 value for animation-direction; normal -> start from beginning, alternate-> start from bigining and on next cycle, it start from the ned of the previous animation*/
+/* reverse -> animation start from 100%, not from 0% */
+/* alternate-reverse -> reverse of alternate */
+/*  animation-iteration-count -> can be infinite or can define any count such that it will repeat for such many cycle */
+/* animation-play-state -> running is the default value, paused which makes to pause the animation, which will not run at initial phase */
+/* when applying 2 animation, where the property is same, the second property overides the first one */
+/* We can solve the overiding issue with animation composition property*/
+
+/* animation-composition: replace; here replace means the property defined in the keyframes completely replaces the property defined in the element */
+/* 0% ->transform: translateX(0);
+100% -> transform: translateX(calc(100vw - 140px)); */
+/* animation-composition: add; here the property defined in the element will be added to the property defined in the keyframes */
+/* 0% -> transform: rotate(45deg) translateX(0);
+100% -> transform: rotate(45deg) translateX(calc(100vw - 140px)); */
+/* animation-composition: accumulate; values which can be accumulated together are accumulated*/
+/* 0% -> transform: translateX(0) rotate(90deg); rotate(45) + rotate(45) => rotate(90)
+100% -> transform: rotate(45deg) translateX(calc(100vw - 140px)); */
+
+/* after animation is completed it returns to the initial position, which can be controlled by animation fill mode  */
+/* default value for animation-fill-mode: none; is none*/
+/* animation-fill-mode: forwards; it stay at the end of the animation, means the position will be at the end of the animation stopped */
+/* animation-fill-mode: backwards; the first encountered keyframes color will be applied to the element */
+/* animation-fill-mode: both; to apply both forwards and backwards */
+
+/* keyframes:, we can have multiple keyframes value, which will not override the other one 
+    @keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(100px);
+    }
+     50% {
+        background-color: 'red';
+    }
+    100% {
+        transform: translateY(100px);
+    }
+}
+*/
+/* By adding !important to the property value, that style will be ignored by the animation */
+/* we can set the animation-composition in the keyframe value itself, so while using animation-composition: add; in the element we can prevent it from add ing two styles 
+    50% {
+            background-color: 'red';
+            animation-composition: replace
+        }
+*/
+
+/* discrete animation */
+/* like as transition, we dont need to mention discrete property */
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw - 140px));
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    /* margin-top: 0px; */
+  }
+  100% {
+    transform: translateY(100px);
+    /* margin-top: 100px; */
+  }
+}
+
+@keyframes flip-image {
+    100% {
+        background-image: linear-gradient(greenyellow, maroon);
+    }
 }
