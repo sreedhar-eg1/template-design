@@ -1,0 +1,229 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f5b638;
+}
+
+.container {
+  height: 25rem;
+  width: 31.25rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  perspective: 50rem;
+  border: 1px solid black;
+}
+
+.face {
+  height: 7.5rem;
+  width: 11.25rem;
+  background-color: #4d4dc4;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 3.12rem;
+  border-radius: 0 0 3.12rem 3.12rem;
+}
+
+.face::after,
+.face::before {
+  content: "";
+  position: absolute;
+  height: 0.4rem;
+  width: 0.9rem;
+  border: 0.43rem solid #181758;
+  border-bottom: none;
+  border-radius: 1.25rem 1.25rem 0 0;
+  top: 1.87rem;
+}
+
+.face::after {
+  left: 3.12rem;
+}
+
+.face::before {
+  right: 3.12rem;
+}
+
+.ear-l,
+.ear-r {
+  position: absolute;
+  background-color: #f589aa;
+  height: 1.87rem;
+  width: 0.93rem;
+  bottom: 6.87rem;
+}
+
+.ear-l {
+  border-radius: 0 3.75rem 3.75rem 0;
+  left: 0.62rem;
+  /* horizontal alignment, vertical alignment, blur, spread, color */
+  box-shadow: 0 0 0 0.62rem #4d4dc4, 4.18rem 0.3rem 0 -0.06rem #4d4dc4;
+}
+
+.ear-r {
+  border-radius: 3.75rem 0 0 3.75rem;
+  right: 0.62rem;
+  box-shadow: 0 0 0 0.62rem #4d4dc4, -4.18rem 0.3rem 0 -0.06rem #4d4dc4;
+}
+
+.ear-l::before {
+  content: "";
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #181758;
+  border-radius: 50%;
+  top: 5rem;
+  left: 4.37rem;
+  box-shadow: -2.13rem 0 0 -0.37rem #2f319f, 2.13rem 0 0 -0.37rem #2f319f,
+    -3.43rem 0 0 -0.37rem #2f319f, 3.43rem 0 0 -0.37rem #2f319f;
+}
+
+.ear-l:after {
+  content: "";
+  position: absolute;
+  height: 1.25rem;
+  width: 3.12rem;
+  background-color: #2f319f;
+  top: 8.74rem;
+  left: 3.43rem;
+}
+
+.ear-r:before {
+  content: "";
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  background-color: #a7acf5;
+  top: 12.18rem;
+  left: -6.75rem;
+  box-shadow: 0 0 0 2.5rem #4d4dc4;
+  border-radius: 1.87rem;
+}
+
+.ear-r::after {
+  content: "";
+  position: absolute;
+  width: 0.62rem;
+  height: 0.62rem;
+  background-color: #4d4dc4;
+  top: 15.62rem;
+  left: -4.53rem;
+  border-radius: 50%;
+}
+
+.hand-l {
+  position: absolute;
+  height: 6.25rem;
+  width: 6.25rem;
+  border: 1.25rem solid #4d4dc4;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 3.12rem 0.62rem 0.62rem 0.62rem;
+  top: 12.9rem;
+  left: 7rem;
+  animation: move-hand-l 6s infinite;
+  transform-origin: 104% 0;
+  transform-style: preserve-3d;
+}
+
+@keyframes move-hand-l {
+  50% {
+    transform: rotateX(180deg);
+  }
+}
+
+.hand-l::before {
+  content: "";
+  position: absolute;
+  height: 1.25rem;
+  width: 0.62rem;
+  background-color: #4d4dc4;
+  bottom: -0.62rem;
+  left: -0.62rem;
+  border-radius: 0.62rem;
+}
+
+.hand-r {
+  position: absolute;
+  height: 6.25rem;
+  width: 6.25rem;
+  border: 1.25rem solid #4d4dc4;
+  border-left: none;
+  border-top: none;
+  border-radius: 0.62rem 0.62rem 3.12rem 0.62rem;
+  top: 5.7rem;
+  right: 6.6rem;
+  transform-origin: -4% 100%;
+  transform-style: preserve-3d;
+  animation: move-hand-r 6s infinite;
+}
+
+@keyframes move-hand-r {
+  50% {
+    transform: rotateX(-180deg);
+  }
+}
+
+.hand-r::before {
+  content: "";
+  position: absolute;
+  height: 1.25rem;
+  width: 1.87rem;
+  background-color: #4d4dc4;
+  left: 5.9rem;
+  border-radius: 0 0 0.62rem 0.62rem;
+}
+
+.hand-r::after {
+  content: "";
+  position: absolute;
+  height: 1.25rem;
+  width: 0.62rem;
+  background-color: #4d4dc4;
+  right: -0.25rem;
+  top: -1rem;
+  border-radius: 0.62rem 0.62rem 0 0;
+  box-shadow: 1.25rem 0 #4d4dc4;
+}
+
+.leg-l,
+.leg-r {
+  position: absolute;
+  height: 4.37rem;
+  width: 1.87rem;
+  background-color: #2f319f;
+  bottom: 1.25rem;
+  z-index: -1;
+}
+
+.leg-l {
+  left: 12.25rem;
+}
+
+.leg-r {
+  right: 12.25rem;
+  animation: stamp 2s infinite;
+}
+
+@keyframes stamp {
+  50% {
+    transform: translateY(-1.25rem);
+  }
+}
+
+.leg-l::before, .leg-r::before {
+  content: "";
+  position: absolute;
+  height: 1.25rem;
+  width: 2.5rem;
+  background-color: #4d4dc4;
+  top: 4.37rem;
+  left: -0.3rem;
+  border-radius: 0.62rem 0.62rem 0 0;
+}
