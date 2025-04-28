@@ -1,0 +1,128 @@
+body {
+  background-color: #1d1d1d;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 0;
+  margin: 0;
+  /* timeline-scope: --container-timeline; */
+}
+
+.container {
+  height: 50vh;
+  flex: 1;
+  overflow: auto;
+  background-color: #100e1e;
+  /* name based scroll time line */
+  /* here the scroll-timeline-name value should start with -- followed by any name of our choice*/
+  /* scroll-timeline-name: --container-2; */
+  /* to apply animation to which axis  */
+  /* scroll-timeline-axis: block; */
+
+  /* shorthand notation */
+  /* scroll-timeline: --container-2 block; */
+
+  /* animating the self element with the help of self option */
+  animation: changeBackgroundcolor linear both;
+  /* animation-timeline: scroll(block self); */
+  animation-timeline: --container-2;
+}
+
+.container-2 {
+  height: 50vh;
+  flex: 1;
+  overflow: auto;
+  background-color: #100e1e;
+  scroll-timeline: --container-2 block;
+}
+
+.content {
+  padding: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  animation: move linear both;
+  /* refrencing  scroll-timeline-name to animation timeline*/
+  animation-timeline: --container-2;
+
+  /* using anonymous approach */
+  /*  nearest */
+  /* animation-timeline: scroll(y nearest); */
+  /* root */
+  /* animation-timeline: scroll(y root); */
+  /* self */
+  /* animation-timeline: scroll(y self); */
+
+  /* animation range property to define animation start and end */
+  /* long notation */
+  /* animation-range-start: 20%;
+  animation-range-end: 80%; */
+  /* shorthand notation */
+  /* animation-range: 300px 80%; */
+  position: sticky;
+  top: 0;
+}
+
+@keyframes move {
+  to {
+    transform: translateX(calc(50vw - 100px));
+  }
+}
+
+@keyframes changeBackgroundcolor {
+  to {
+    background-color: pink;
+  }
+}
+
+/* 
+
+animation timeline is of two types 
+    default, which is based on time
+    scroll based timeline
+
+This timeline can be changed with the help of animation-timeline property
+to make this property work, we need to give scroll timeline name to the container where the scroll is happening
+with that name, we can reference it in animation timeline property
+
+to apply animation to which axis using scroll-timeline-axis property
+it has 4 values : block, inline, x and y
+default value is block
+
+shorthand notation for scroll-timeline-name  and scroll-timeline-axis is scroll-timeline
+
+with this timeline defined, now we dont need any duration while defining the animation
+
+animation-timeline property can also take value auto, then it will be normal timeline based animation, not scroll based animation
+
+animation-timeline property can also take value none, then there will be no animation
+
+first we need to define animation property, then only need to specify animation-timeline, otherwise it will get reseted to auto
+
+if we give scroll-timeline-name to the container, then only its children or descendent can apply this animation
+
+the above approach is named scroll timeline, where we give name and reference it, there is also another approach which is anonymous scroll timeline
+
+we can use anonymous approus with the help of scroll method as value to the animation timeline property animation-timeline: scroll();
+scroll(y nearest) takes few parameter first is axis, like block ..., second is the parent element, here nearest means nearest parent
+we can also give root instead of nearest, here root element of the document provide the animation
+we can also give self value, which gives animation to the self element
+default value is nearest
+
+
+we can make animation to start from particular point in the scrol and also in some point in the scroll timeline
+this can be achieved using animation-range property
+default value is normal, i.e 0% to 100%
+
+for scroll animation to work, the animation applied element should be the descentant of the element that is providing the scroll timeline
+there is a workaround for to solve this issue
+this workaround doesnot work with anonymous timeline
+the workaround is, to increase the scope of the timeline, such that it can be used outside
+we can use timeline-scope property, and give animation-timeline name as a value to the element where we need to increase the scope
+*/
