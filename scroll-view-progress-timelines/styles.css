@@ -1,0 +1,139 @@
+body {
+  background-color: #1d1d1d;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 0;
+  margin: 0;
+  timeline-scope: --progress-view;
+}
+
+.container {
+  height: 100vh;
+  overflow: auto;
+  background-color: #100e1e;
+  animation: changeBg linear both;
+  animation-timeline: --progress-view;
+}
+
+/* .container:before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 5px;
+  background-color: gold;
+  top: 20%;
+  z-index: 100;
+}
+.container:after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 5px;
+  background-color: gold;
+  bottom: 10%;
+  z-index: 100;
+} */
+
+.content {
+  padding: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.progress {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(57, 41, 67);
+  position: relative;
+  margin: 20px 0;
+}
+.progress-inner {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(209, 90, 213);
+  /* long hang notation */
+  /* view-timeline-name: --progress-view;
+  view-timeline-axis: block; */
+
+  /* shorthand notation */
+  /* named timeline */
+  /* view-timeline: --progress-view block; */
+
+  /* with anonymous timeline */
+
+  animation: animateWidth linear both;
+  /*with named timeline */
+  /* animation-timeline: --progress-view; */
+  /* with anonymous method */
+  animation-timeline: view();
+
+  /* animation range - to specify the start and end of the animation */
+  /* animation-range: 25% 75%; */
+
+  /* alternative of animation-range */
+  /* view-timeline-inset: 20% 10%; */
+
+  /* named timeline ranges */
+  /* cover */
+  animation-range-start: cover;
+  animation-range-end: cover;
+  /* cover */
+  /* animation-range-start: contain;
+  animation-range-end: contain; */
+  /* entry */
+  /* animation-range-start: entry;
+  animation-range-end: entry; */
+  /* exit */
+  /* animation-range-start: exit;
+  animation-range-end: exit; */
+}
+
+@keyframes animateWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes changeBg {
+  to {
+    background-color: orange;
+  }
+}
+
+/* 
+view progress timeline
+
+in view progress timeline, animation starts when the particular elememts visible and end when that element is hidden
+
+to enable this view timeline, we have a property called view-timeline, here as a value we can give any name of our choice
+
+similar to default scroll animation, view can also give animation-range
+
+apart from animation-range, we can modify animation with the help of view-timeline-inset property
+this also allows us to customize when the animation start and when it ends
+if we use animation-range with  view-timeline-inset, first view-timeline-inset modification will be applied, on that modification animation-range will be applied
+
+in view-timeline also we can have anonymous timeline, like view() method
+inside view() method we can pass inset value also
+
+we have seen that, for animation-range, we used to give percentage or pixel values
+we can also give named timeline ranges
+we have some keyword that can be used, they are
+cover -> its same as normal, animation start when the element is visible, hides when the element get hidden
+contain -> animation start when the element is fully contained in the view
+we can modify contain behaviour by contain 10%, contain 70%....
+entry -> animation starts when the subject starts entering the view and ends when the subject/element is completely in the view
+exit -> when the subject starts exiting the view, the the animation start ans when the subject is completely in the view it ends
+*/
+
+/* 
+Tool to visulaize ranges
+
+https://scroll-driven-animations.style/tools/view-timeline/ranges/#range-start-name=cover&range-start-percentage=0&range-end-name=cover&range-end-percentage=100&view-timeline-axis=block&view-timeline-inset=0&subject-size=smaller&subject-animation=reveal&interactivity=clicktodrag&show-areas=yes&show-fromto=yes&show-labels=yes
+*/
