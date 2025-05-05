@@ -1,0 +1,216 @@
+.hero {
+  height: 100vh;
+  view-timeline: --hero-view;
+}
+.hero-inner {
+  height: 100vh;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+}
+
+/* To check if the browser support particular animation */
+@supports (animation-timeline: view()) {
+  .hero {
+    height: 150vh;
+  }
+}
+
+.hero .back-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(76, 235, 161);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  clip-path: polygon(
+    47% 21%,
+    100% 0,
+    100% 55%,
+    90% 94%,
+    46% 100%,
+    5% 93%,
+    0% 12%
+  );
+  animation: backVideo forwards;
+  animation-timeline: --hero-view;
+  animation-range: exit-crossing 0% exit-crossing 20%;
+}
+
+.hero .back-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(
+    47% 21%,
+    100% 0,
+    100% 55%,
+    90% 94%,
+    46% 100%,
+    5% 93%,
+    0% 12%
+  );
+}
+
+.hero .front-video {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(219, 76, 235);
+  padding: 3px;
+  clip-path: polygon(
+    0% 0%,
+    30% 0%,
+    50% 15%,
+    100% 15%,
+    100% 80%,
+    30% 100%,
+    0% 50%
+  );
+  animation: frontVideoClipPath both, border both;
+  animation-timeline: --hero-view;
+  /* animation start when the element start exiting */
+  animation-range: exit-crossing;
+}
+
+.hero .front-video video {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 100;
+  object-fit: cover;
+  clip-path: polygon(
+    0% 0%,
+    30% 0%,
+    50% 15%,
+    100% 15%,
+    100% 80%,
+    30% 100%,
+    0% 50%
+  );
+  filter: saturate(0.2);
+  animation: frontVideoClipPath both, frontVideoSaturation both;
+  animation-timeline: --hero-view;
+  animation-range: exit-crossing;
+}
+
+.hero .content {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  top: 0;
+  align-items: center;
+}
+.hero .content .content-inner {
+  width: 1000px;
+  max-width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+.hero .content .content-inner h2 {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.hero .content .content-inner h2.first {
+  animation: firstTitle both;
+  animation-timeline: --hero-view;
+  animation-range: exit-crossing 0% exit-crossing 10%;
+}
+
+.hero .content .content-inner h2.second {
+  animation: secondTitle both;
+  animation-timeline: --hero-view;
+  animation-range: exit-crossing 10% exit-crossing 70%;
+}
+
+@keyframes frontVideoClipPath {
+  20% {
+    clip-path: polygon(
+      0% 0%,
+      30% 0%,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      30% 100%,
+      0% 100%
+    );
+  }
+  to {
+    clip-path: polygon(
+      0% 0%,
+      30% 0%,
+      50% 0%,
+      100% 0%,
+      100% 90%,
+      30% 100%,
+      0% 90%
+    );
+  }
+}
+
+@keyframes frontVideoSaturation {
+  20% {
+    filter: saturate(1);
+  }
+  to {
+    filter: saturate(0.2);
+  }
+}
+
+@keyframes border {
+  0% {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  20% {
+    padding: 5px;
+  }
+  70% {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  100% {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 3px;
+  }
+}
+
+@keyframes backVideo {
+  to {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes firstTitle {
+  to {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes secondTitle {
+  from {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+  30%, 70% {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    display: none;
+    opacity: 0;
+    transform: scale(0.3) rotate(5deg);
+  }
+}
+
