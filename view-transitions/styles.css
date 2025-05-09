@@ -38,6 +38,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
+  /* giving view transition name */
+  view-transition-name: header;
 }
 .header .header-inner {
   height: var(--header-height);
@@ -48,6 +50,10 @@ img {
 }
 .header.expanded .header-inner {
   justify-content: flex-start;
+}
+
+.header .title {
+  view-transition-name: header-title;
 }
 
 .header .title h1 {
@@ -76,6 +82,7 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding: 20px;
+  /* view-transition-name: grid; */
 }
 
 .grid .grid-item {
@@ -157,3 +164,82 @@ img {
   line-height: 1.8;
   margin-top: 40px;
 }
+
+/* targeting the view transition api's psuedo element to alter the animation behaviour */
+/* ::view-transition-new(root), ::view-transition-old(root) {
+  animation-duration: 5s;
+} */
+
+/* to apply completely new animation instead of the default fade in and out animation */
+@keyframes slideOut {
+  to {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+::view-transition-old(root) {
+  animation: slideOut 0.5s ease-in-out both;
+}
+
+::view-transition-new(root) {
+  animation: slideIn 0.5s ease-in-out both;
+}
+
+/* targeting view transition name, we can change or remove its animation */
+::view-transition-old(header),
+::view-transition-new(header) {
+  animation: none;
+}
+
+/* targeting view transition and disabling the animation to apply new one */
+::view-transition-new(image), ::view-transition-old(image) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+  overflow: hidden;
+}
+
+::view-transition-new(image) {
+  object-fit: co;
+}
+
+/* apply view transition only if the system supports it */
+@media (prefers-reduced-motion) {
+  /* ... add the animation here */
+}
+
+/* ::view-transition-old(grid),
+::view-transition-new(grid) {
+  animation: none;
+} */
+
+/* we can target group instead of old and new state */
+/* ::view-transition-group(header-title) {
+  animation-duration: 5s;
+} */
+
+/* 
+when we use viewTransition, we will get two state, old and new, means how the DOM was earlier and now
+Based on these state we can apply animations
+
+we can extract certain element, hence they will have their own psuedo element, which wull help us in applying different
+animarion to different part
+which can be achieved by giving view transition name with the help of view-transition-name property
+
+view-transition-name should be unique, no duplicate name is allowed
+
+If we wants to check for browser support while using view transition, then we can use @media (prefers-reduced-motion), inside
+we can add view transition animation
+*/
