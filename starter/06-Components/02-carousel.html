@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carousel Component</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
@@ -10,7 +10,7 @@
     />
 
     <style>
-        * {
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -22,10 +22,159 @@
       body {
         font-family: "Inter", sans-serif;
         color: #343a40;
+        line-height: 1.2;
+      }
+
+      .carousel {
+        position: relative;
+        background-color: #087f5b;
+        width: 800px;
+        margin: 100px auto;
+        border-radius: 8px;
+        padding: 32px;
+        padding-left: 86px;
+        padding-right: 48px;
+
+        display: flex;
+        align-items: center;
+        gap: 86px;
+      }
+
+      img {
+        height: 200px;
+        border-radius: 8px;
+        transform: scale(1.5);
+        box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .testomonial {
+      }
+      .testomonial-text {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-bottom: 32px;
+        color: #c3fae8;
+      }
+
+      .testomonial-author {
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: #96f2d7;
+      }
+
+      .testomonial-job {
+        font-size: 12px;
+        color: #96f2d7;
+      }
+
+      .btn {
+        position: absolute;
+        background-color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn--prev {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn--next {
+        right: 0;
+        top: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .btn-icon {
+        width: 24px;
+        height: 24px;
+        stroke: #087f5b;
+      }
+
+      .dots {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(50%, 32px);
+
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        background-color: #fff;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #087f5b;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      .dot--fill {
+        background-color: #087f5b;
       }
     </style>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="carousel">
+      <img src="./maria.jpg" alt="Maria" />
+      <blockquote class="testomonial">
+        <p class="testomonial-text">
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+          laborum dolorum molestias dolorem animi veniam aliquam deleniti ipsum
+          eaque consectetur nemo."
+        </p>
+        <p class="testomonial-author">Maria de Alemeda</p>
+        <p class="testomonial-job">Senior product manager at EDP Commercial</p>
+      </blockquote>
+      <button class="btn btn--prev">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="btn-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5 8.25 12l7.5-7.5"
+          />
+        </svg>
+      </button>
+      <button class="btn btn--next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="btn-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
+      <div class="dots">
+        <button class="dot dot--fill">&nbsp;</button>
+        <button class="dot">&nbsp;</button>
+        <button class="dot">&nbsp;</button>
+        <button class="dot">&nbsp;</button>
+      </div>
+    </div>
+  </body>
 </html>
