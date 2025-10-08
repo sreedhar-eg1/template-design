@@ -1,0 +1,2 @@
+currentColor
+currentColor property in css takes the color specified
