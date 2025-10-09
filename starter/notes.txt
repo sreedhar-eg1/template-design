@@ -1,2 +1,6 @@
 currentColor
 currentColor property in css takes the color specified
+
+input element will not inherit the font family used inparent
+we can force to inherit by using inherit keyword
+font-family: inherit
