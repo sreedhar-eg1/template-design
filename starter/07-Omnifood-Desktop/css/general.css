@@ -185,6 +185,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .grid--align-v {
   align-items: center;
 }
