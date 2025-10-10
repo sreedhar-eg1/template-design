@@ -4,3 +4,13 @@ currentColor property in css takes the color specified
 input element will not inherit the font family used inparent
 we can force to inherit by using inherit keyword
 font-family: inherit
+
+sometimes some css property dont work in some browser
+some of them can be solved using -webkit prefix
+ex
+backdrop-filter: blur(10px) -> dont work in safari browser, use -webkit prefix to resolve the issue
+
+-webkit-backdrop-filter: blur(10px)
+backdrop-filter: blur(10px)
+
+we can check the availability using caniuse website
