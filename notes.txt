@@ -25,3 +25,5 @@ i,e width: calc((100% - #{$gutter-horizontal}) / 2);
 [class^="col-"] => any class that starts with col-
 [class*="col-"] => any class that contains col-
 [class$="col-"] => any class that ends with col-
+
+a > b => select b which is a dirext child of a 
