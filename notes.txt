@@ -1,0 +1,27 @@
+While using keyframes animation, there will be some shaky during animation happens
+To fix this we need to use backface-visibility: hidden;
+
+Specificity: most of the css override issue can be resolved using Specificity
+(inline, id, classes/psuedo/attribute, element)
+with total Specificity take in to effect
+
+SCSS DEMO
+https://codepen.io/sreedhareg1997/pen/EaPvLzr?editors=1100
+
+While using 7 in 1 rule, we willl create partial files
+Partial files is created by placing underscore before filename
+Ex _base.SCSS
+
+This partial file can be imported using @imported
+@import 'base/base'
+
+while importing, underscore and file extension .scss are omitted
+
+we cant use sass variable inside calc like we use in other places
+i.e like width: calc((100% - $gutter-horizontal) / 2);
+instead, we need to use #{$gutter-horizontal}
+i,e width: calc((100% - #{$gutter-horizontal}) / 2);
+
+[class^="col-"] => any class that starts with col-
+[class*="col-"] => any class that contains col-
+[class$="col-"] => any class that ends with col-
