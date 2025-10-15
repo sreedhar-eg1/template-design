@@ -40,3 +40,8 @@ check card.scss for example
 box-decoration-break property
 if we have an element span into multiple line, then we can use this property to break the element into multiple part and apply the style
 check card.scss for implemented example
+
+shape-outside property
+similar to clip-path property, if we want the text to cicle the elment, means fowing around the element
+for shape-outside to work, the element must be floaded and width and height need to be defined
+check story.scss for implemented example
