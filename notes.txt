@@ -27,3 +27,16 @@ i,e width: calc((100% - #{$gutter-horizontal}) / 2);
 [class$="col-"] => any class that ends with col-
 
 a > b => select b which is a dirext child of a 
+
+While applying transition, we can specify perspective to get better visual effect
+perspective is always defined in the parent element
+check card.scss to see the example
+lower the perspective value, than we see some different behavior, so go with higher value
+
+background-blend-mode property
+It is used to blend image and any other color
+check card.scss for example
+
+box-decoration-break property
+if we have an element span into multiple line, then we can use this property to break the element into multiple part and apply the style
+check card.scss for implemented example
