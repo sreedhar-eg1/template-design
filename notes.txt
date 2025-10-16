@@ -27,6 +27,9 @@ i,e width: calc((100% - #{$gutter-horizontal}) / 2);
 [class$="col-"] => any class that ends with col-
 
 a > b => select b which is a dirext child of a 
+a + b => here a and b will be sibling, we can use + to select sibling element
+         + is used to select adjacent sibling element
+a ~ b =>  This is also used to select sibling element, but we can select any sibling element not only the adjacent
 
 While applying transition, we can specify perspective to get better visual effect
 perspective is always defined in the parent element
