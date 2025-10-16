@@ -48,3 +48,6 @@ shape-outside property
 similar to clip-path property, if we want the text to cicle the elment, means fowing around the element
 for shape-outside to work, the element must be floaded and width and height need to be defined
 check story.scss for implemented example
+
+In some case, we see transition is not applying, this is because element must be inline
+so change the display property to make it work
