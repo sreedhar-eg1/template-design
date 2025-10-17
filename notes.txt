@@ -51,3 +51,23 @@ check story.scss for implemented example
 
 In some case, we see transition is not applying, this is because element must be inline
 so change the display property to make it work
+
+column-count property
+If we have a big text and want to divide the text into two columns, then we can use column count property
+check popup.scss for implemented example
+
+column-gap => to provide gap between the column
+
+column-rule => its like border, but it will be exactly in between the column
+
+hyphens property
+If we have a long word, and when it break into new line, we can add hypens using this property
+check popup.scss for implemented example
+
+If we use display:none, then animation is not possible
+so  we go with opacity: 0, visibility: hidden
+
+target psuedo class
+:target
+If we click on an anchor element, and then it scroll to the element specified, that will be the target element
+check popup.scss for implemented example
