@@ -1,4 +1,5 @@
-@use '../abstracts/variables' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 *,
 *::after,
@@ -9,7 +10,25 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 16px, 10px / 16px => 0.625 => 62.5%
+
+  // @include respond-phone {
+  //   font-size: 50%;
+  // }
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
 }
 
 body {

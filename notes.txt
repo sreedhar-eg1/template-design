@@ -71,3 +71,7 @@ target psuedo class
 :target
 If we click on an anchor element, and then it scroll to the element specified, that will be the target element
 check popup.scss for implemented example
+
+In scss, we can put block of code inside mixins using @content
+
+In scss, we can use if condition with the help of @if
