@@ -91,3 +91,16 @@ so browser dynamically use the proper width
 along with width we need to provide sizes attribute also
 
 We need to use src also for older browser support, srcset is not supported in older version
+
+Browser Support
+we can use @supports to check if some property support browser
+
+@media only screen and (min-width: 112.5em) { 
+      @content;
+}
+here only screen means, media queries only get applied to screen, means while taking print out, this wont get applied
+
+To check, if the screen is touch or not we can use
+@media only screen and (hover: none) {
+    
+}
