@@ -1,0 +1,5 @@
+Flex Examples
+https://codepen.io/sreedhareg1997/pen/WbrMbeY
+
+align-items: align flex items across cross axis
+align-content: align full row across cross axis
