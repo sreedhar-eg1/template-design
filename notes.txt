@@ -75,3 +75,19 @@ check popup.scss for implemented example
 In scss, we can put block of code inside mixins using @content
 
 In scss, we can use if condition with the help of @if
+
+Responsive images
+Density switching: high resolution screen should have double pixel image, and lower pixel device need to have single pixel image
+ex, if image is 150px, then higher resolution device should have double the pixel, i.e 300, because high resolution device uses 2 pixel to render 1pixel
+this can be achieved using srcset attribute along with descriptor value
+srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+
+Art direction: bigger scrren need to render one image, smaller screen need to render another image
+which can be achieved using picture element
+inside picture element we should have atleast one image element, and one or more source element
+
+Resolution switching: in density switching, we specify descriptor value, here we specify width of the image
+so browser dynamically use the proper width
+along with width we need to provide sizes attribute also
+
+We need to use src also for older browser support, srcset is not supported in older version
