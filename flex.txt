@@ -3,3 +3,75 @@ https://codepen.io/sreedhareg1997/pen/WbrMbeY
 
 align-items: align flex items across cross axis
 align-content: align full row across cross axis
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Grid Examples
+https://codepen.io/sreedhareg1997/pen/ZYQxZLZ
+https://codepen.io/sreedhareg1997/pen/LEGmjyp
+
+grid-area: column-start / column-end / row-start / row-end
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Implicit grids and Explicit grids
+https://codepen.io/sreedhareg1997/pen/PwZaeej
+The rows and columns that we define using grid-template-rows and grid-template-columns becomes explicit grid
+Other than these will be implicit grids
+
+we can style these implicit grid using grid-auto-rows and grid-auto-columns
+By default, implicit grid are added as a row
+this is because grid-auto-flow is set to row
+we can change this behaviour using grid-auto-flow: column
+
+-----------------------------------------------------------------------------------------------------------------------
+Aligning Grid Items
+we can achieve this using align-items and justify-items property
+we apply this property to grid container
+align-items: vertical alignment
+justify-items: horizontal alignment
+
+we can use align-self and justify-self to override the container specified alignment of particular grid item
+
+-----------------------------------------------------------------------------------------------------------------------
+Aligning Tracks
+we can align tracks in the container using justify-content and align-content property
+
+-----------------------------------------------------------------------------------------------------------------------
+When we try to span some grid items, we see some blanks in between
+we can prevent it by using dense keyword
+grid-auto-flow: rows dense
+
+
+-----------------------------------------------------------------------------------------------------------------------
+mincontent and maxcontent and minmax function
+https://codepen.io/sreedhareg1997/pen/LEGrBRr
+
+max-content: we can use as a value with grid-template-columns or row
+             It only takes content space
+             It doesnot break the text
+
+min-content: Takes minimum space of the available content
+             will break into multiple line
+
+minmax function
+    Here we will pass two values, and the grid tracks always stays between them
+    Ex: grid-template-rows: repeat(2, minmax(150px, min-content));
+    Now the row always stays between 150px and min-content
+
+Responsive Layouts with auto-fit and auto-fill
+    grid-template-columns: repeat(4, 1fr);
+    In above, we are specifying 4 column, instead what if we need to adapt based on the items that we have
+    we can achieve this using auto-fill
+    grid-template-columns: repeat(auto-fill, 100px);
+
+auto-fill: it create the as many tracks without explicitly specifying it
+auto-fit: it is similar to auto-fill
+
+Example:
+    If the width is 1000px, and we have 8 items
+    grid-template-columns: repeat(auto-fill, 100px);
+        This will create 10 tracks, where 2 tracks with nothing
+    grid-template-columns: repeat(auto-fit, 100px);|
+        This will also create 10 tracks, but last 2 tracks width will be 0, and space will be provided
+
