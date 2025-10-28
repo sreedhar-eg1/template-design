@@ -65,7 +65,7 @@ Responsive Layouts with auto-fit and auto-fill
     we can achieve this using auto-fill
     grid-template-columns: repeat(auto-fill, 100px);
 
-auto-fill: it create the as many tracks without explicitly specifying it
+auto-fill: it create  as many tracks without explicitly specifying it
 auto-fit: it is similar to auto-fill
 
 Example:
