@@ -8,7 +8,10 @@
   justify-content: center;
   grid-row-gap: 2rem;
   justify-items: center;
-  
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: full-start / full-end;
+  }
 
   &__list {
     display: grid;
@@ -16,15 +19,21 @@
     grid-column-gap: 2rem;
     grid-row-gap: 5vh;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-auto-flow: column;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: min-content max-content;
+      grid-auto-flow: row;
+    }
   }
 
   &__img {
     width: 7rem;
     border-radius: 50%;
     display: block;
-  }
-
-  &__details {
   }
 
   &__sold {
